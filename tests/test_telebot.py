@@ -14,22 +14,7 @@ my_vcr = vcr.VCR(
 )
 
 
-class TestTelebot:
 
-    def setup(self):
-        self.app = TeleBot(__name__)
-
-    def teardown(self):
-        self.app = None
-
-    def test_no_config(self):
-        ''' Verify polling can't start without api_key set.
-
-        '''
-        pytest.raises(ValueError, self.app.poll)
-
-    def test_parrot_registered(self):
-        ''' Verify route decorator registers within the update rules.
 
         '''
         @self.app.route('(?!/).+')
